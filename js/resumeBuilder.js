@@ -1,5 +1,12 @@
-$("#main").append("George Abreu");
+//$("#main").append("George Abreu");
+var realRole = "Web Developer";
 var firstName = "George";
 var awesomeThoughts = "I am George and I am AWESOME";
 console.log(firstName);
 console.log(awesomeThoughts);
+var funThoughts = awesomeThoughts.replace("AWESOME", "fun");
+//$("#main").append(funThoughts);
+var formattedName = HTMLheaderName.replace("%data%", firstName);
+var formattedRole = HTMLheaderRole.replace("%data%", realRole);
+$("#header").prepend(formattedName);
+$("#header").append(formattedRole);
