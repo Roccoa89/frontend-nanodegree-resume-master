@@ -1,2 +1,5 @@
 $("#main").append("George Abreu");
-document.write(299792458/100);
+var firstName = "George";
+var awesomeThoughts = "I am George and I am AWESOME";
+console.log(firstName);
+console.log(awesomeThoughts);
