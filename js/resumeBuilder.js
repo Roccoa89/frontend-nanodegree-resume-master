@@ -15,7 +15,7 @@ if(bio.skills.length > 0) {
 
 	$("#header").append(HTMLskillsStart);
 
-	formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
 	$("#header").append(formattedSkill);
 	formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
 	$("#header").append(formattedSkill);
