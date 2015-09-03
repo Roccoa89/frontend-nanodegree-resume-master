@@ -8,7 +8,9 @@ var firstName = "George Abreu";
 //$("#main").append(funThoughts);
 var formattedName = HTMLheaderName.replace("%data%", firstName);
 var formattedRole = HTMLheaderRole.replace("%data%", realRole);
-$("#header").append(firstName);
+$("#header").append(formattedName);
+$("#header").append(formattedRole);
+
 /*
 if(bio.skills.length > 0) {
 
@@ -91,7 +93,7 @@ var projects = {
 	}
 	]
 };
-/*
+
 for (job in work.jobs) {
 	$("#workExperience").append(HTMLworkStart);
 
@@ -101,4 +103,3 @@ for (job in work.jobs) {
 
 	$(".work-entry:last").append(formattedEmployerTitle);
 }
-*/
