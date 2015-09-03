@@ -1,4 +1,4 @@
-//$("#main").append("George Abreu");
+/*$("#main").append("George Abreu");*/
 var realRole = "Web Developer";
 var firstName = "George Abreu";
 //var awesomeThoughts = "I am George and I am AWESOME";
@@ -8,8 +8,7 @@ var firstName = "George Abreu";
 //$("#main").append(funThoughts);
 var formattedName = HTMLheaderName.replace("%data%", firstName);
 var formattedRole = HTMLheaderRole.replace("%data%", realRole);
-$("#header").append(formattedName);
-$("#header").append(formattedRole);
+$("#header").append(firstName);
 /*
 if(bio.skills.length > 0) {
 
@@ -23,6 +22,23 @@ if(bio.skills.length > 0) {
 	$("#skills").append(formattedSkill);
 }
 */
+
+var bio = {
+	"name" : "George Abreu",
+	"role" : "Web Developer",
+	"contacts" : {
+		"mobile": "561-313-3152",
+		"email": "roccoa89hub@gmail.com",
+		"github": "roccoa89",
+		"twitter": "@roccoa89",
+		"location": "West Palm Beach"
+	},
+	"welcomeMessage" : "Hello and Welcome",
+	"skills" : [
+		"Fluent in Javascript", "awesomeness", "somemore stuff"
+		],
+	"bioPic": "images/fry.jpg"
+};
 
 var education = {
 	"schools": [
@@ -50,24 +66,6 @@ var education = {
 	]
 }
 
-
-var bio = {
-	"name" : "George Abreu",
-	"role" : "Web Developer",
-	"contacts" : {
-		"mobile": "561-313-3152",
-		"email": "roccoa89hub@gmail.com",
-		"github": "roccoa89",
-		"twitter": "@roccoa89",
-		"location": "West Palm Beach"
-	},
-	"welcomeMessage" : "Hello and Welcome",
-	"skills" : [
-		"Fluent in Javascript", "awesomeness", "somemore stuff"
-		],
-	"bioPic": "images/fry.jpg"
-};
-
 var work = {
 	"jobs": [
 		{
@@ -79,16 +77,6 @@ var work = {
 	]
 };
 
-
-for (job in work.jobs) {
-	$("#workExperience").append(HTMLworkStart);
-
-	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-	var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-	var formattedEmployerTitle = formattedEmployer + formattedTitle;
-
-	$(".work-entry:last").append(formattedEmployerTitle);
-}
 
 var projects = {
 	"projects": [
@@ -103,3 +91,14 @@ var projects = {
 	}
 	]
 };
+/*
+for (job in work.jobs) {
+	$("#workExperience").append(HTMLworkStart);
+
+	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+	var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+	var formattedEmployerTitle = formattedEmployer + formattedTitle;
+
+	$(".work-entry:last").append(formattedEmployerTitle);
+}
+*/
