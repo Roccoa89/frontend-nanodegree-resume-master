@@ -1,35 +1,35 @@
-/*$("#main").append("George Abreu");
+//$("#main").append("George Abreu");
 var realRole = "Web Developer";
-var firstName = "George";
-var awesomeThoughts = "I am George and I am AWESOME";
+var firstName = "George Abreu";
+//var awesomeThoughts = "I am George and I am AWESOME";
 //console.log(firstName);
 //console.log(awesomeThoughts);
-var funThoughts = awesomeThoughts.replace("AWESOME", "fun");
+//var funThoughts = awesomeThoughts.replace("AWESOME", "fun");
 //$("#main").append(funThoughts);
 var formattedName = HTMLheaderName.replace("%data%", firstName);
 var formattedRole = HTMLheaderRole.replace("%data%", realRole);
-$("#header").prepend(formattedName);
+$("#header").append(formattedName);
 $("#header").append(formattedRole);
-*/
+/*
 if(bio.skills.length > 0) {
 
 	$("#header").append(HTMLskillsStart);
 
 	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-	$("#header").append(formattedSkill);
+	$("#skills").append(formattedSkill);
 	formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-	$("#header").append(formattedSkill);
+	$("#skills").append(formattedSkill);
 	formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-	$("#header").append(formattedSkill);
+	$("#skills").append(formattedSkill);
 }
-
+*/
 
 var education = {
 	"schools": [
 		{
 			"name": "FAU",
 			"city": "Boca Raton",
-			"degree" "Bachelor's",
+			"degree": "Bachelor's",
 			"major": "Computer Science",
 			"dates": "2014-2015"
 		},
@@ -58,7 +58,7 @@ var bio = {
 		"mobile": "561-313-3152",
 		"email": "roccoa89hub@gmail.com",
 		"github": "roccoa89",
-		"twitter": "@roccoa89"
+		"twitter": "@roccoa89",
 		"location": "West Palm Beach"
 	},
 	"welcomeMessage" : "Hello and Welcome",
@@ -78,6 +78,17 @@ var work = {
 		}
 	]
 };
+
+
+for (job in work.jobs) {
+	$("#workExperience").append(HTMLworkStart);
+
+	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+	var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+	var formattedEmployerTitle = formattedEmployer + formattedTitle;
+
+	$(".work-entry:last").append(formattedEmployerTitle);
+}
 
 var projects = {
 	"projects": [
