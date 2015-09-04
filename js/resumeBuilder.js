@@ -1,4 +1,4 @@
-/*$("#main").append("George Abreu");
+$("#main").append("George Abreu");/*
 var realRole = "Web Developer";
 var firstName = "George";
 var awesomeThoughts = "I am George and I am AWESOME";
@@ -10,7 +10,7 @@ var formattedName = HTMLheaderName.replace("%data%", firstName);
 var formattedRole = HTMLheaderRole.replace("%data%", realRole);
 $("#header").prepend(formattedName);
 $("#header").append(formattedRole);
-*/
+
 if(bio.skills.length > 0) {
 
 	$("#header").append(HTMLskillsStart);
@@ -91,4 +91,4 @@ var projects = {
 		]
 	}
 	]
-};
+};*/
