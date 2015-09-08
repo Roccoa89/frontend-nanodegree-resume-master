@@ -1,30 +1,23 @@
-/*$("#main").append("George Abreu");*/
 var realRole = "Web Developer";
 var firstName = "George Abreu";
-//var awesomeThoughts = "I am George and I am AWESOME";
-//console.log(firstName);
-//console.log(awesomeThoughts);
-//var funThoughts = awesomeThoughts.replace("AWESOME", "fun");
-//$("#main").append(funThoughts);
+
 var formattedName = HTMLheaderName.replace("%data%", firstName);
 var formattedRole = HTMLheaderRole.replace("%data%", realRole);
 $("#header").append(formattedName);
 $("#header").append(formattedRole);
+$("#main").append(internationalizeButton);
 
+$(document).click(function(loc) {
+	var x = loc.pageX;
+	var y = loc.pageY;
+
+	logClicks(x, y);
+});
 /*
-if(bio.skills.length > 0) {
+var formattedBiopic = HTMLbioPic.replace("%data%", "http://oyster.ignimgs.com/mediawiki/apis.ign.com/futurama/1/11/Fry.jpg");// here is where you put a link for your actual pic
 
-	$("#header").append(HTMLskillsStart);
-
-	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
-	$("#skills").append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
-	$("#skills").append(formattedSkill);
-	formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
-	$("#skills").append(formattedSkill);
-}
+$("#header").append(formattedBiopic);
 */
-
 var bio = {
 	"name" : "George Abreu",
 	"role" : "Web Developer",
@@ -41,6 +34,34 @@ var bio = {
 		],
 	"bioPic": "images/fry.jpg"
 };
+
+var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+
+var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+
+var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+
+$("#header").append(formattedMobile);
+$("#header").append(formattedEmail);
+$("#header").append(formattedGithub);
+$("#header").append(formattedLocation);
+
+var formattedBiopic = HTMLbioPic.replace("%data%", "http://oyster.ignimgs.com/mediawiki/apis.ign.com/futurama/1/11/Fry.jpg");// here is where you put a link for your actual pic
+
+$("#header").append(formattedBiopic);
+
+if(bio.skills.length > 0) {
+
+	$("#header").append(HTMLskillsStart);
+	var formattedSkill = HTMLskills.replace("%data%", bio.skills[0]);
+	$("#skills").append(formattedSkill);
+	formattedSkill = HTMLskills.replace("%data%", bio.skills[1]);
+	$("#skills").append(formattedSkill);
+	formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
+	$("#skills").append(formattedSkill);
+}
 
 var education = {
 	"schools": [
@@ -68,17 +89,66 @@ var education = {
 	]
 }
 
+for (school in education.schools) {
+	$("#education").append(HTMLschoolStart);
+
+	var formattedSchoolName = HTMLschoolName.replace("%data%", education.schools[school].name);
+	var formattedSchoolDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+	var formattedSchoolDate = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+	var formattedSchoolCity = HTMLschoolLocation.replace("%data%", education.schools[school].city);
+	var formattedSchoolMajor = HTMLschoolMajor.replace("%data%", education.schools[school].major);
+
+	var formattedSchoolNameDegree = formattedSchoolName + formattedSchoolDegree;// combined so both name and degree are highlighted
+
+	$(".education-entry:last").append(formattedSchoolNameDegree);
+	$(".education-entry:last").append(formattedSchoolDate);
+	$(".education-entry:last").append(formattedSchoolCity);
+	$(".education-entry:last").append(formattedSchoolMajor);
+
+}
+
+for (online in education.onlineCourses) {
+	$("#education").append(HTMLonlineClasses);
+
+	var formattedOnlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[online].title);
+	var formattedOnlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[online].school);
+	var formattedOnlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[online].dates);
+	var formattedNewOnline = formattedOnlineTitle + formattedOnlineSchool;// put them together so both are highlighted
+
+	$(".education-entry:last").append(formattedNewOnline);
+	$(".education-entry:last").append(formattedOnlineDates);
+}
+
 var work = {
 	"jobs": [
 		{
+		"employerName": "The World Corp",
 		"employer": "Planet Express",
 		"title": "Delivery Boy",
+		"position": "Main Person",
+		"location": "Everywhere",
 		"dates": "July 2007 - July 2012",
-		"description": "Navy Stuff"
+		"description": "Navy Stuff, lots and lots of navy stuff"
 		}
 	]
 };
 
+for (job in work.jobs) {
+	$("#workExperience").append(HTMLworkStart);
+
+	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
+	var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
+	var formattedEmployerTitle = formattedEmployer + formattedTitle;
+
+	$(".work-entry:last").append(formattedEmployerTitle);
+
+	var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
+	$(".work-entry:last").append(formattedDates);
+
+	var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[job].description);
+	$(".work-entry:last").append(formattedDescription);
+
+}
 
 var projects = {
 	"projects": [
@@ -92,14 +162,64 @@ var projects = {
 		]
 	}
 	]
-};
-
-for (job in work.jobs) {
-	$("#workExperience").append(HTMLworkStart);
-
-	var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-	var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-	var formattedEmployerTitle = formattedEmployer + formattedTitle;
-
-	$(".work-entry:last").append(formattedEmployerTitle);
 }
+
+projects.display = function() {
+	for (project in projects.projects) {
+		$("#projects").append(HTMLprojectTitle);
+
+		var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
+		$(".project-entry:last").append(formattedTitle);
+
+		var formattedDates = HTMLprojectsDates.replace("%data", projects.projects[project].dates);
+		$(".projects-entry:last").append(formattedDates);
+
+		var formattedDescription = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
+		$(".project-entry:last").append(formattedDescription);
+
+		if (projects.projects[project].images.length > 0) {
+			for (image in projects.projects[project].images) {
+				var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
+				$(".project-entry:last").append(formattedImage);
+			}
+		}
+	}
+}
+
+
+/*
+var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+
+var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+
+var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+
+$("#header").append(formattedMobile);
+$("#header").append(formattedEmail);
+$("#header").append(formattedGithub);
+$("#header").append(formattedLocation);
+
+var formattedBiopic = HTMLbioPic.replace("%data%", "http://oyster.ignimgs.com/mediawiki/apis.ign.com/futurama/1/11/Fry.jpg");// here is where you put a link for your actual pic
+
+$("#header").append(formattedBiopic);
+
+var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+
+var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+
+var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+
+var formattedLocation = HTMLlocation.replace("%data%", bio.contacts.location);
+
+$("#header").append(formattedMobile);
+$("#header").append(formattedEmail);
+$("#header").append(formattedGithub);
+$("#header").append(formattedLocation);
+*/
+
+$("#mapDiv").append(googleMap);
+
+
+
