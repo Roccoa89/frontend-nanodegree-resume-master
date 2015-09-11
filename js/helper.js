@@ -65,7 +65,7 @@ The International Name challenge in Lesson 2 where you'll create a function that
 $(document).ready(function() {
   $('button').click(function() {
     var iName = inName(name) || function(){};
-    $('#name').html(iName);  
+    $('#name').html(iName);
   });
 });
 
@@ -85,7 +85,7 @@ function logClicks(x,y) {
 }
 
 $(document).click(function(loc) {
-  // your code goes here!
+  logClicks(loc.pageX, loc.pageY);// your code goes here!
 });
 
 
@@ -121,7 +121,8 @@ function initializeMap() {
   function locationFinder() {
 
     // initializes an empty array
-    var locations = [];
+    //var locations = [];
+    var locations = ["Tokyo", "Sasebo", "Okinawa", "Manilla", "Seoul", "Bangkok", "Cairnes", "Brisbane", "Sydney", "Singapore Island", "Afghanistan", "Guantanamo Bay", "West Palm Beach"];
 
     // adds the single location property from bio to the locations array
     locations.push(bio.contacts.location);
@@ -149,8 +150,10 @@ function initializeMap() {
   function createMapMarker(placeData) {
 
     // The next lines save location data from the search result object to local variables
-    var lat = placeData.geometry.location.k;  // latitude from the place service
-    var lon = placeData.geometry.location.D;  // longitude from the place service
+    //var lat = placeData.geometry.location.k;  // latitude from the place service
+    //var lon = placeData.geometry.location.D;  // longitude from the place service
+    var lat = placeData.geometry.location.lat();
+    var lon = placeData.geometry.location.lng();//this and the above added and orginal is commented out
     var name = placeData.formatted_address;   // name of the place from the place service
     var bounds = window.mapBounds;            // current boundaries of the map window
 
@@ -170,7 +173,7 @@ function initializeMap() {
 
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
+      infoWindow.open(map, marker);// i put this code here, recheck it
     });
 
     // this is where the pin actually gets added to the map.
@@ -233,11 +236,10 @@ Uncomment the code below when you're ready to implement a Google Map!
 */
 
 // Calls the initializeMap() function when the page loads
-//window.addEventListener('load', initializeMap);
+window.addEventListener('load', initializeMap);//uncommented
 
 // Vanilla JS way to listen for resizing of the window
 // and adjust map bounds
-//window.addEventListener('resize', function(e) {
-  // Make sure the map bounds get updated on page resize
-//  map.fitBounds(mapBounds);
-//});
+window.addEventListener('resize', function(e) {
+  map.fitBounds(mapBounds);
+});// uncommented // Make sure the map bounds get updated on page resize
