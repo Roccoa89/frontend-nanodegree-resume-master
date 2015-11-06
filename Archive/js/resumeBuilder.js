@@ -29,7 +29,7 @@ var bio = {
 		],
 	"bioPic": "images/fry.jpg"
 };
-	//display: function(){
+
 var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
 
 var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
@@ -57,8 +57,6 @@ if(bio.skills.length > 0) {
 	formattedSkill = HTMLskills.replace("%data%", bio.skills[2]);
 	$("#skills").append(formattedSkill);
 }
-
-
 
 var education = {
 	"schools": [
