@@ -122,7 +122,7 @@ function initializeMap() {
 
     // initializes an empty array
     //var locations = [];
-    var locations = ["Tokyo", "Sasebo", "Okinawa", "Manilla", "Seoul", "Bangkok", "Cairnes", "Brisbane", "Sydney", "Singapore Island", "Afghanistan", "Guantanamo Bay", "West Palm Beach"];
+    var locations = ["Tokyo", "Sasebo", "Okinawa", "Manilla", "Seoul", "Bangkok", "Cairnes", "Brisbane", "Sydney", "Singapore Island", "Afghanistan", "Guantanamo Bay", "West Palm Beach"];//Put the locations in myself
 
     // adds the single location property from bio to the locations array
     locations.push(bio.contacts.location);
